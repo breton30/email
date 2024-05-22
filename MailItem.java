@@ -61,4 +61,7 @@ public class MailItem
         System.out.println("To: " + to);
         System.out.println("Message: " + message);
     }
+    public String getSubject(){
+        return null;
+    }
 }

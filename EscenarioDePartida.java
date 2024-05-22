@@ -14,8 +14,16 @@ import org.junit.jupiter.api.Test;
 public class EscenarioDePartida
 {
     private MailServer gmailServer;
-    private MailClient clientePepe;
     private MailClient clienteMaria;
+    private MailClient clientePepe;
+
+    
+    
+    
+
+    
+    
+    
 
     /**
      * Default constructor for test class EscenarioDePartida
@@ -33,11 +41,12 @@ public class EscenarioDePartida
     public void setUp()
     {
         gmailServer = new MailServer();
-        clientePepe = new MailClient(gmailServer, "pepe@gmail.com");
         clienteMaria = new MailClient(gmailServer, "maria@gmail.com");
-        clientePepe.sendMailItem("maria@gmail.com", "Hola Maria, soy Pepe!");
-        
-        
+        clientePepe = new MailClient(gmailServer, "pepe@gmail.com");
+        clientePepe.sendMailItem("maria@gmail.com", "Hola maria, soy Pepe");
+        clienteMaria.printNextMailItem();
+        clienteMaria.printNextMailItem();
+        clientePepe.sendMailItem("maria@gmail.com", "Hola Maria, soy Pepe");
     }
 
     /**
