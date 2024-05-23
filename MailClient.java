@@ -56,7 +56,7 @@ public class MailClient
         server.post(item);
     }
     public int getNumberOfMessageInServer(){
-        return 0 ;
+        return server.howManyMailItems(user);
     }
     public void receiveAndAutorespond(){
         
