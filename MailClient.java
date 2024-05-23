@@ -11,6 +11,7 @@ public class MailClient
     private MailServer server;
     // The user running this client.
     private String user;
+    private MailItem lastReceivedMail;
 
     /**
      * Create a mail client run by user and attached to the given server.
@@ -19,6 +20,7 @@ public class MailClient
     {
         this.server = server;
         this.user = user;
+        this.lastReceivedMail = null;
     }
 
     /**
@@ -26,7 +28,11 @@ public class MailClient
      */
     public MailItem getNextMailItem()
     {
-        return server.getNextMailItem(user);
+        MailItem item= server.getNextMailItem(user);
+        if(item !=null){
+            lastReceivedMail = item;
+        }
+        return item;
     }
 
     /**
@@ -65,6 +71,6 @@ public class MailClient
         return "";
     }
     public MailItem getLastReceivedMail(){
-        return null;
+        return lastReceivedMail;
     }
 }
