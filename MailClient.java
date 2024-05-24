@@ -65,7 +65,12 @@ public class MailClient
         return server.howManyMailItems(user);
     }
     public void receiveAndAutorespond(){
-        
+        MailItem item = getNextMailItem();
+        if(item !=null){
+            String mensajeAutomatico="Gracias por su mensaje. Le contestare lo antes posible." + " " + lastReceivedMail;
+            String asunto="RE: " + item.getSubject();
+            sendMailItem(item.getFrom(), asunto, mensajeAutomatico);
+        }
     }
     public String getStatus(){
         return "";
