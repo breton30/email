@@ -67,7 +67,7 @@ public class MailClient
     public void receiveAndAutorespond(){
         MailItem item = getNextMailItem();
         if(item !=null){
-            String mensajeAutomatico="Gracias por su mensaje. Le contestare lo antes posible." + " " + lastReceivedMail;
+            String mensajeAutomatico="Gracias por su mensaje. Le contestare lo antes posible." + " " + item.getMessage();
             String asunto="RE: " + item.getSubject();
             sendMailItem(item.getFrom(), asunto, mensajeAutomatico);
         }
